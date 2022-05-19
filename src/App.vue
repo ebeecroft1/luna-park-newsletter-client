@@ -1,9 +1,28 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
+    <b-navbar type="dark">
+
+      <b-navbar-nav>
+        <b-button variant="outline">
+          <b-icon icon="list" aria-hidden="true"></b-icon>
+        </b-button>
+      </b-navbar-nav>
+      
+      <b-navbar-brand href="/" class="mx-auto">
+        <img id="logo" alt="Luna Park logo" src="./assets/logo.svg">
+      </b-navbar-brand>
+
+      <b-navbar-nav>
+
+        <b-button variant="outline">
+          <b-icon icon="cart3" aria-hidden="true"></b-icon>
+        </b-button>
+        <b-button variant="outline">
+          <b-icon icon="person-circle" aria-hidden="true"></b-icon>
+        </b-button>
+      </b-navbar-nav>
+
+    </b-navbar>
     <router-view/>
   </div>
 </template>
@@ -27,7 +46,4 @@ nav a {
   color: #2c3e50;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
