@@ -3,7 +3,7 @@
     <div class="tickets">
       <h3>GET MORE AIR TIME!</h3>
       <p>BOOK EARLY AND SAVE!</p>
-      <b-button pill variant="danger">Buy Tickets</b-button>
+      <button class="button" id="ticket-button">Buy Tickets</button>
     </div>
 
     <img src="../assets/gate.png" alt="Family at Luna Park Gates" class="img-banner">
@@ -12,7 +12,9 @@
       <h4>JOIN IN THE FUN</h4>
       <p>Get the latest news, special deals and exclusive offers delivered straight to your inbox.</p>
 
-      <b-button pill class="px-5 m-3" variant="danger" href="/signup">Sign Up</b-button>
+      <form action="/signup">
+        <button class="button">Sign Up</button>
+      </form>
 
       <p>Join 42,000+ thrillseekers. Unsubscribe anytime.</p>
     </div>
@@ -38,6 +40,33 @@ export default{
     background-repeat: no-repeat;
     background-size: 100%;
     color: #FFFFFF;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1px;
+  }
+
+  .button {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 10px 24px;
+   gap: 10px;
+
+   width: 328px;
+   height: 40px;
+
+   background: #EC1D3B;
+   border-radius: 100px;
+   margin: 0 auto;
+   border: #EC1D3B;
+   color: white;
+  }
+
+  #ticket-button {
+    padding: 10px 10px;
   }
 
   .img-banner{
