@@ -22,7 +22,6 @@ export default{
         'footer-part': Footer
     }
 }
-
 </script>
 
 <style>
