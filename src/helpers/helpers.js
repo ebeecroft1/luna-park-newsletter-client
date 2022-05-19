@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000/users/';
+const baseURL = 'http://localhost:3000/users';
 
 const handleError = (fn) => (...params) => 
     fn(...params).catch((error) => {
@@ -8,11 +8,11 @@ const handleError = (fn) => (...params) =>
     });
 
 export const api = {
-    getWords: handleError(async () => {
+    getUsers: handleError(async () => {
         const res = await axios.get(baseURL);
         return res.data;
     }),
-    createWord: handleError(async (payload) => {
+    createUser: handleError(async (payload) => {
         const res = await axios.post(baseURL, payload);
         return res.data;
     })

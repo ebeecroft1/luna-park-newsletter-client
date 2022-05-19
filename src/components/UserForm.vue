@@ -1,7 +1,7 @@
 <template>
     <div class="form">
-        <b-form>
-            <div class="components">
+        <b-form action="#" @submit.prevent="onSubmit">
+            <div class="components" >
                 <h2 class="header-20">JOIN THE FUN</h2>
                 <p>Get the latest news, special deals and exclusive offers delivered straight to your inbox. </p>
 
@@ -18,6 +18,7 @@
                         id="input-1"
                         placeholder="Enter your first name..."
                         required
+                        v-model="user.firstName"
                     ></b-form-input>
                     </b-form-group>
                 </div>
@@ -32,6 +33,7 @@
                         id="input-2"
                         placeholder="Enter your last name..."
                         required
+                        v-model="user.lastName"
                     ></b-form-input>
                     </b-form-group>
                 </div>
@@ -49,6 +51,7 @@
                         type="email"
                         placeholder="Enter email"
                         required
+                        v-model="user.email"
                     ></b-form-input>
                     </b-form-group>
                 </div>
@@ -56,9 +59,74 @@
 
             <div class="components">
                 <h2 class="header-19">I am interested in</h2>
-            </div>    
-             
-                   
+                    <b-form-group
+                      v-slot="{ ariaDescribedby }"
+                    >
+                      <b-form-checkbox
+                        v-model="user.interests"
+                        key="Special deals and offers"
+                        value="Special deals and offers"
+                        :aria-describedby="ariaDescribedby"
+                        class="lists"
+                      >
+                        Special deals and offers
+                      </b-form-checkbox>
+                      <b-form-checkbox
+                        v-model="user.interests"
+                        key="Events and festivals"
+                        value="Events and festivals"
+                        :aria-describedby="ariaDescribedby"
+                        class="lists"
+                      >
+                        Events and festivals
+                      </b-form-checkbox>
+                      <b-form-checkbox
+                        v-model="user.interests"
+                        key="Theme park updates"
+                        value="Theme park updates"
+                        :aria-describedby="ariaDescribedby"
+                        class="lists"
+                      >
+                        Theme park updates
+                      </b-form-checkbox>
+                      <b-form-checkbox
+                        v-model="user.interests"
+                        key="Competitons and promotions"
+                        value="Competitons and promotions"
+                        :aria-describedby="ariaDescribedby"
+                        class="lists"
+                      >
+                        Competitons and promotions
+                      </b-form-checkbox>
+                    </b-form-group>
+            </div> 
+            <div class="components" >
+                <h2 class="header-19">I'd like to recieve updates</h2>
+                <b-form-group v-slot="{ ariaDescribedby }">
+                  <b-form-radio v-model="user.frequency" :aria-describedby="ariaDescribedby" name="some-radios" value="Weekly" class="lists">Weekly</b-form-radio>
+                  <b-form-radio v-model="user.frequency" :aria-describedby="ariaDescribedby" name="some-radios" value="Fortnightly" class="lists">Fortnightly</b-form-radio>
+                  <b-form-radio v-model="user.frequency" :aria-describedby="ariaDescribedby" name="some-radios" value="Monthly" class="lists">Monthly</b-form-radio>
+                </b-form-group>
+            </div> 
+            <div class="components" >
+                <h2 class="header-19">Our privacy promise</h2>
+                <ul>
+                    <li>You're in control. We don't spam. Unsubscribe anytime from the newsletter.</li>
+                     <li>We'll protect your information like it's our own. Our <a href="#">Privacy Policy</a> governs how.</li>
+                </ul>
+            </div>
+            <div class="components" >
+                <b-form-checkbox
+                  id="checkbox-1"
+                  required
+                  class="condition"
+                >
+                  By signing up, I have read and agree to the <a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a> of Luna Park.
+                </b-form-checkbox>
+            </div> 
+            <div class="center">
+                <button class="button">SUBSCRIBE</button>     
+            </div>                             
         </b-form>
     </div>
 </template>
@@ -66,19 +134,38 @@
 <script>
 
 export default {
-    name:"user-form",
+   
+    name: "user-form",
     props:{
-        user:{
+        user: {
             type: Object,
             required: false,
-            default(){
-
+            default() {
+                return {
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    interests:[], // Must be an array reference!
+                    frequency: ''                   
+                }
             }
         }
-
+    },
+    data() {
+        return {
+            errorsPresent: false
+        }
+    },
+    methods: {
+        onSubmit() {
+            if (this.user.firstName === '' || this.user.lastName === '') {
+                this.errorsPresent = true;
+            } else {
+                this.$emit('createOrUpdate', this.user);
+            }
+        }
     }
-   
-  }
+}
 </script>
 
 
@@ -148,4 +235,77 @@ p{
 .b-custom-control-lg{
     padding-left: 0!important;
 }
+
+.center{
+    text-align: center;
+}
+
+.button{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 10px 24px;
+   gap: 10px;
+
+   width: 328px;
+   height: 40px;
+
+   background: #EC1D3B;
+   border-radius: 100px;
+   margin: 0 auto;
+   border: #EC1D3B;
+   color: white;
+}
+
+.custom-control-input{
+    height: 18px;
+    width: 18px;
+    margin-right:12px;
+
+}
+
+.lists{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    
+    
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.4px;
+    margin-bottom: 13px;
+    
+    /* Luna blue */
+    
+    color: #094268;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li::before {
+  content: "\2022";
+  color: black;
+  font-weight: normal;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -16px;
+}
+
+.condition {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    /* or 133% */
+    
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.4px;
+
+}
+
 </style>
