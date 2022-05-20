@@ -3,8 +3,10 @@
       <div>
           <img src="../assets/play.png" alt="" class="img">
           <h2>No FOMO for you!</h2>
-          <p>You've successfully signed up to our email newsletter. We'll keep you posted on all the fun when it matters.</p>
+          <p class="someText">You've successfully signed up to our email newsletter. We'll keep you posted on all the fun when it matters.</p>
+          <form action="/">
           <button class="button">BACK TO HOME</button>
+          </form>
       </div>
 
 
@@ -44,7 +46,7 @@ export default{
    margin-bottom: 50px;
 }
 
-p{
+.someText{
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
@@ -54,6 +56,7 @@ p{
     align-items: center;
     text-align: center;
     letter-spacing: 0.1px;
+    justify-content: center;
 }
 
 .img{

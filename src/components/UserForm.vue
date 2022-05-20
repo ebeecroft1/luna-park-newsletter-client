@@ -3,7 +3,7 @@
         <b-form action="#" @submit.prevent="onSubmit">
             <div class="components" >
                 <h2 class="header-20">JOIN THE FUN</h2>
-                <p>Get the latest news, special deals and exclusive offers delivered straight to your inbox. </p>
+                <p class='body'>Get the latest news, special deals and exclusive offers delivered straight to your inbox. </p>
 
             </div>
             <div class="components">
@@ -48,7 +48,6 @@
                         
                     <b-form-input
                         id="input-3"
-                        type="email"
                         placeholder="Enter email"
                         required
                         v-model="user.email"
@@ -177,6 +176,9 @@ export default {
 .components{
     margin-top: 25px;
     margin-bottom: 25px;
+}
+.body{
+    text-align: left;
 }
 
 p{

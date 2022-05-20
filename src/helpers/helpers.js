@@ -8,12 +8,17 @@ const handleError = (fn) => (...params) =>
     });
 
 export const api = {
+    err: '',
     getUsers: handleError(async () => {
         const res = await axios.get(baseURL);
         return res.data;
     }),
     createUser: handleError(async (payload) => {
-        const res = await axios.post(baseURL, payload);
+        const res = await axios.post(baseURL, payload).catch( (error) => {
+            if (error.message){     
+               console.log(error.message)
+            }
+        });
         return res.data;
     })
 };
