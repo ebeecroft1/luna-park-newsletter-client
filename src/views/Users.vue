@@ -12,9 +12,9 @@
         <th scope="col" class="titleTable">First name</th>
         <th scope="col" class="titleTable">Last name</th>
         <th scope="col" class="titleTable">Email</th>
-        <th scope="col" class="titleTable">Interest</th>
+        <th scope="col" class="titleTable">Topic subscribed</th>
         <th scope="col" class="titleTable">Frequency</th>
-        <th scope="col" class="titleTable">Date subscribe</th>
+        <th scope="col" class="titleTable">Date subscribed</th>
         <th scope="col" class="titleTable"></th>
 
       </tr>

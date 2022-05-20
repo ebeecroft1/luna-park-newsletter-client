@@ -108,6 +108,9 @@
                         Competitons and promotions
                       </b-form-checkbox>
                     </b-form-group>
+                     <div v-if="message && message.interests" class="errMessage">
+                       {{message.interests.message}}
+                    </div>
             </div> 
             <div class="components" >
                 <h2 class="header-19">I'd like to recieve updates</h2>
@@ -116,6 +119,9 @@
                   <b-form-radio v-model="user.frequency" :aria-describedby="ariaDescribedby" name="some-radios" value="Fortnightly" class="lists">Fortnightly</b-form-radio>
                   <b-form-radio v-model="user.frequency" :aria-describedby="ariaDescribedby" name="some-radios" value="Monthly" class="lists">Monthly</b-form-radio>
                 </b-form-group>
+                <div v-if="message && message.frequency" class="errMessage">
+                        {{message.frequency.message}}
+                </div>
             </div> 
             <div class="components" >
                 <h2 class="header-19">Our privacy promise</h2>
@@ -128,6 +134,7 @@
                 <b-form-checkbox
                   id="checkbox-1"
                   required
+                  
                   class="condition"
                 >
                   By signing up, I have read and agree to the <a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a> of Luna Park.
@@ -332,7 +339,7 @@ ul li::before {
     color: white;
     font-size: 12px;
     line-height: 16px;
-    padding: 10px;
+    padding:10px
 }
 
 </style>
