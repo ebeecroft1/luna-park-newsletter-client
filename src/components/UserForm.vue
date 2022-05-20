@@ -134,6 +134,7 @@
                 <b-form-checkbox
                   id="checkbox-1"
                   required
+                  
                   class="condition"
                 >
                   By signing up, I have read and agree to the <a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a> of Luna Park.
