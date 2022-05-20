@@ -2,8 +2,7 @@
     <div>
         <img src="../img-mandy/signup-banner.png" alt="" class="img-banner">
         <div class="form-container">
-            <h4 v-if="message" class="err">{{message}}</h4>
-            <user-form @createOrUpdate="createOrUpdate"></user-form>
+            <user-form @createOrUpdate="createOrUpdate" :message="message"></user-form>
             
         </div>
         <footer-part></footer-part>
@@ -21,7 +20,7 @@ export default {
     name:'new-user',
     data(){
         return{
-            message:''
+            message:{}
         }
     },
     components: {
@@ -32,7 +31,7 @@ export default {
          async createOrUpdate(user) {
             const res = await api.createUser(user);
             if(res.message){
-                this.message =res.message;
+                this.message =res.errors;
                 alert(res.message);
             }else{
                 this.$router.push('/signup/success');

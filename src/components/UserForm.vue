@@ -20,6 +20,9 @@
                         required
                         v-model="user.firstName"
                     ></b-form-input>
+                    <div v-if="message && message.firstName" class="errMessage">
+                        {{message.firstName.message}}
+                    </div>
                     </b-form-group>
                 </div>
          
@@ -35,6 +38,9 @@
                         required
                         v-model="user.lastName"
                     ></b-form-input>
+                    <div v-if="message && message.lastName" class="errMessage">
+                        {{message.lastName.message}}
+                    </div>
                     </b-form-group>
                 </div>
          
@@ -52,7 +58,11 @@
                         required
                         v-model="user.email"
                     ></b-form-input>
+                    
                     </b-form-group>
+                    <div v-if="message && message.email" class="errMessage">
+                        {{message.email.message}}
+                    </div>
                 </div>
             </div>
 
@@ -148,7 +158,14 @@ export default {
                     frequency: ''                   
                 }
             }
-        }
+        },
+        message:{
+            default(){
+                return null                
+            },
+            type: Object,
+            required: false
+            }
     },
     data() {
         return {
@@ -308,6 +325,14 @@ ul li::before {
     align-items: center;
     letter-spacing: 0.4px;
 
+}
+
+.errMessage{
+    background-color: #EC1D3B;
+    color: white;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 10px;
 }
 
 </style>

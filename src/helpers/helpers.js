@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000/users';
+const baseURL = 'https://lunapark-server.herokuapp.com/users';
 
 const handleError = (fn) => (...params) => 
     fn(...params).catch((error) => {
@@ -16,7 +16,7 @@ export const api = {
     createUser: handleError(async (payload) => {
         const res = await axios.post(baseURL, payload).catch( (error) => {
             if (error.message){     
-               console.log(error.message)
+               return error.message;
             }
         });
         return res.data;
