@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img src="../img-mandy/signup-banner.png" alt="" class="img-banner">
+        <img src="../img-mandy/signup-banner.png" alt="Family on rollercoaster" class="img-banner">
         <div class="form-container">
             <user-form @createOrUpdate="createOrUpdate" :message="message"></user-form>
             
