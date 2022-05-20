@@ -1,4 +1,5 @@
 <template>
+<div>
 <div class="container3">
     <div class="allText">
     <h1 class="fisrtHeading">Email newsletter subscribers</h1>
@@ -30,16 +31,17 @@
 
       </tr>
     </tbody>
+    
   </table>
+  </div>
 
-
-
-
+<footer-part></footer-part>
 </div>
     
 </template>
 
 <script>
+import Footer from '../components/Footer.vue';
 import { api } from '../helpers/helpers';
 export default {
     name: 'users',
@@ -47,6 +49,9 @@ export default {
         return{
             users:[]
         }
+    },
+    components: {
+        'footer-part': Footer
     },
     async mounted(){
         this.users = await api.getUsers()
