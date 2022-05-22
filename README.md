@@ -1,24 +1,20 @@
-# luna-park-newsletter-client
+# Mini group work with UX designer.
 
-## Project setup
-```
-npm install
-```
+Help luna park to create a sample function for users to signup for latest newsletter. </br>
+Techonology : **_Vue.js, Node.js & Express.js_** </br>
+Deplopyment ; **_Heroku & Netlify_** </br>
+Demo: https://lunapark-client.netlify.app/
 
-### Compiles and hot-reloads for development
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+Group Member:
+DEV: Eric & Mandy
+UX: Thomas & Nikesh
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Figma file
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![screen shot](src/assets/figma.gif)
+
+### Shortcut
+
+![screen shot](src/assets/shortcut.gif)
