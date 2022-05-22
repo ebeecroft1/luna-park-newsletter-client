@@ -1,7 +1,7 @@
 <template>
   <div class="home">
       <div>
-          <img src="../assets/play.png" alt="" class="img">
+          <img src="../assets/play.png" alt="Family on the Hair Raiser" class="img">
           <h2>No FOMO for you!</h2>
           <p class="someText">You've successfully signed up to our email newsletter. We'll keep you posted on all the fun when it matters.</p>
           <form action="/">

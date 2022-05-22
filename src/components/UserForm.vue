@@ -142,7 +142,7 @@
             </div> 
             <div class="center">
                 <button class="button">SUBSCRIBE</button>     
-            </div>                             
+            </div>                      
         </b-form>
     </div>
 </template>
